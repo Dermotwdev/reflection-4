@@ -1,0 +1,355 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Material Design Expanded List ( matd_expand_list ) Examples</title>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+	@import url('https://fonts.googleapis.com/css?family=Roboto+Condensed');
+
+	body {
+		font-family: 'Roboto Condensed', sans-serif;
+		background-color: #eeeeee;
+	}
+	.container { margin: 150px auto; max-width: 960px; }
+
+	h3.notice_card_title {
+		font-weight: 800;
+		font-size: 15pt;
+	}
+
+	.underline {
+		border-bottom: 1px solid #707070;
+	}
+
+	pre {
+		background: rgba(112,112,112,0.2);
+	}
+
+	.zone {
+	margin-bottom: 2em;
+	}
+
+	.header {
+		margin-top: 1em;
+	}
+
+	.demos {
+		margin-top: 1em;
+	}
+
+	.demo_zone {
+		margin-top: 0.5em;
+		margin-bottom: 0.5em;
+	}
+
+	.demo_zone.out {
+		height: 140px;
+		overflow-y:auto;
+	}
+
+	.zone_left {
+		left:0;
+	}
+	.zone_right {
+		right:0;
+	}
+	.zone_parent {
+		position: relative;
+	}
+
+	.custom_css {
+		color: deepskyblue;
+	}
+
+	</style>
+
+	<link rel="stylesheet" href="../src/matd_expandlist.css" type="text/css" media="screen" />
+
+</head>
+
+<body><div id="jquery-script-menu">
+<div class="jquery-script-center">
+<ul>
+<li><a href="https://www.jqueryscript.net/accordion/material-design-expansion-panel.html">Download This Plugin</a></li>
+<li><a href="https://www.jqueryscript.net/">Back To jQueryScript.Net</a></li>
+</ul>
+<div class="jquery-script-ads"><script type="text/javascript"><!--
+google_ad_client = "ca-pub-2783044520727903";
+/* jQuery_demo */
+google_ad_slot = "2780937993";
+google_ad_width = 728;
+google_ad_height = 90;
+//-->
+</script>
+<script type="text/javascript"
+src="https://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script></div>
+<div class="jquery-script-clear"></div>
+</div>
+</div>
+	<div class="container">
+	<div class="header">
+		<h1 class="underline">
+		Material Design Expanded List ( matd_expand_list ) Examples
+		</h1>
+		<p>This is a component designed to provide a quick way to generate a Material Design expanded list into a site or app.</p>
+		<p>
+
+		</p>
+	</div>
+
+	<div>
+		<h3>Getting Started</h3>
+		<p>To get started, place the following lines in your web page or application:</p>
+		<pre>
+
+	 &lt;link rel="stylesheet" href="js/matd_expand_list/src/matd_expandlist.css" type="text/css" media="screen" /&gt;
+	 &lt;script type="text/javascript" src="js/jquery/jquery-3.3.1.min.js"&gt;&lt;/script&gt;
+	 &lt;script type="text/javascript" src="js/matd_expand_list/src/.min.js"&gt;&lt;/script&gt;
+		</pre>
+
+		<p>
+			To use, provide data values for the expanded list options ( see examples below ) and then initiate a call to the control by targeting the zone
+			where the control will be placed:
+
+			<pre>
+
+	 $('#test').matd_expandlist(_param);
+			</pre>
+
+			or via direct function call ( in which the id must be provided in the parameters ):
+
+			<pre>
+
+	 $.fn.matd_expandlist(_param);
+			</pre>
+
+			The examples below demonstrate both methods.
+		</p>
+
+	</div>
+
+	<div class="demos">
+
+	</div>
+
+	<h3>Examples</h3>
+	<div class="zone_parent">
+		<div class="zone zone_left">
+			<h4>Basic use of the MatD Expanded List control</h4>
+
+			The most basic use is by calling the control and passing an array of elements to display as general headers. Like so:
+			<br>
+			<pre>
+	 $('#test1').matd_epandlist({"list":[
+	 {"heading":"First row"},
+	 {"heading":"Second row"},
+	 {"heading":"Third row"}
+	 ]});
+			</pre>
+
+			A demo of this is shown here
+
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+			<div id="test1" class="demo_zone">
+			</div>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+
+			<p>
+				<button onclick="start1()">Start Demo</button>
+			</p>
+		</div>
+		<hr>
+
+
+	</div>
+
+	<div class="zone_parent">
+		<div class="zone zone_left">
+			<h4>Use of the MatD Expanded List control to display header and subheader</h4>
+
+			The second use of the expandid list control is a list with a header and subheader
+			<br>
+			<pre>
+	 $('#test2').matd_epandlist({"list":[
+	 {"heading":"First row","secondary_heading": "This is a subheading for row 1"},
+	 {"heading":"Second row","secondary_heading": "This is a subheading for row 2"},
+	 {"heading":"Third row","secondary_heading": "This is a subheading for row 3"}
+	 ]});
+			</pre>
+
+			A demo of this is shown here
+
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+			<div id="test2" class="demo_zone">
+			</div>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+
+			<p>
+				<button onclick="start2()">Start Demo</button>
+			</p>
+		</div>
+		<hr>
+
+
+	</div>
+
+	<div class="zone_parent">
+		<div class="zone zone_left">
+			<h4>Use of the MatD Expanded List control to display header, subheader, and detail</h4>
+
+			This is the full use of the basic expanded list control. Here we display a list of headers. When selected,
+			they expand to show the detail for each row.
+			<br>
+			<pre>
+	$('#test3').matd_expandlist({"list":[
+	{"heading":"First row",
+		"secondary_heading": "This is a subheading for row 1",
+		"details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."},
+	{"heading":"Second row",
+		"secondary_heading": "This is a subheading for row 2",
+		"details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."},
+		{"heading":"Third row",
+		"secondary_heading": "This is a subheading for row 3",
+		"details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."}
+	]});
+			</pre>
+
+			A demo of this is shown here
+
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+			<div id="test3" class="demo_zone">
+			</div>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+
+			<p>
+				<button onclick="start3()">Start Demo</button>
+			</p>
+		</div>
+		<hr>
+
+
+	</div>
+
+	<div class="zone_parent">
+		<div class="zone zone_left">
+			<h4>the 'Details' can be more than just text</h4>
+
+			While its recommended that the main row header and subheader be text, the detail shares no such limitation.
+			<br>
+			<pre>
+	$('#test4').matd_expandlist({"list":[
+		{"heading":"First row",
+		"secondary_heading": "This is a subheading for row 1",
+		"details":"A link to <a href='//www.google.com' target='newwin'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg> Google</a>! ."},
+		{"heading":"Second row",
+		"secondary_heading": "This is a subheading for row 2",
+		"details":"A second link to <a href='//www.google.com' target='newwin'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg> Google</a>! ."},
+		{"heading":"Third row",
+		"secondary_heading": "This is a subheading for row 3",
+		"details":"A third link to <a href='//www.google.com' target='newwin'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg> Google</a>! ."}
+	]});
+			</pre>
+
+			A demo of this is shown here
+
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+			<div id="test4" class="demo_zone">
+			</div>
+			<p>
+			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent aliquet cursus cursus.
+			</p>
+
+			<p>
+				<button onclick="start4()">Start Demo</button>
+			</p>
+		</div>
+		<hr>
+
+
+	</div>
+
+	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="../src/matd_expandlist.min.js"></script>
+
+	<script type="text/javascript">
+
+	function start1() {
+		$('#test1').matd_expandlist({"list":[
+			{"heading":"First row"},
+			{"heading":"Second row"},
+			{"heading":"Third row"}
+	 ]});
+	}
+
+	function start2() {
+		$('#test2').matd_expandlist({"list":[
+		{"heading":"First row","secondary_heading": "This is a subheading for row 1"},
+	 {"heading":"Second row","secondary_heading": "This is a subheading for row 2"},
+	 {"heading":"Third row","secondary_heading": "This is a subheading for row 3"}
+	 ]});
+	}
+
+	function start3() {
+		$('#test3').matd_expandlist({"list":[
+		{"heading":"First row",
+	 	 "secondary_heading": "Subheading 1",
+		 "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."},
+		{"heading":"Second row",
+		 "secondary_heading": "Subheading 2",
+   		 "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."},
+   		{"heading":"Third row",
+   		 "secondary_heading": "Subheading 3",
+  	 	 "details":"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget."}
+	 ]});
+	}
+
+	function start4() {
+		$('#test4').matd_expandlist({"list":[
+		{"heading":"First row",
+		"secondary_heading": "This is a subheading for row 1",
+		"details":"A link to <a href='//www.google.com' target='newwin'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg> Google</a>! ."},
+		{"heading":"Second row",
+		"secondary_heading": "This is a subheading for row 2",
+		"details":"A second link to <a href='//www.google.com' target='newwin'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg> Google</a>! ."},
+		{"heading":"Third row",
+		"secondary_heading": "This is a subheading for row 3",
+		"details":"A third link to <a href='//www.google.com' target='newwin'><svg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24'><path d='M0 0h24v24H0z' fill='none'/><path d='M19 19H5V5h7V3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2v-7h-2v7zM14 3v2h3.59l-9.83 9.83 1.41 1.41L19 6.41V10h2V3h-7z'/></svg> Google</a>! ."}
+	 ]});
+	}
+
+	</script>
+</div>
+	</body>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+</html>

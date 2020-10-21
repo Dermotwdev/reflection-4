@@ -1,0 +1,208 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap");
+/* -----------------------------------------
+----------------------Mixins-----------------
+-------------------------------------------- */
+/*** LAYOUT ***/
+main {
+  display: flex;
+  flex-direction: column;
+}
+
+.nav-path li {
+  display: inline-block;
+}
+
+.contact-message h2 {
+  padding: 25px 15px;
+}
+
+.contact-form-container, .contact-bottom, .contact-dtls-section, .contact-bottom form, .form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-top {
+  padding-top: 30px;
+}
+.contact-top .hours strong {
+  padding: 10px 0;
+}
+
+.contact-bottom input, .contact-bottom label, .contact-bottom textarea {
+  margin: 10px 15px;
+}
+.contact-bottom textarea, .contact-bottom input {
+  border-radius: 2px;
+}
+.contact-bottom textarea {
+  height: 100px;
+}
+.contact-bottom .message-group {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.contact-bottom .privacy-dec {
+  display: flex;
+}
+.contact-bottom #marketing-confirm {
+  height: 50px;
+  width: 50px;
+}
+.contact-bottom .btn {
+  margin: auto auto auto 15px;
+}
+.contact-bottom .privacy-text p {
+  padding-left: 0;
+}
+
+.map-cards {
+  padding-top: 20px;
+}
+.map-cards .card {
+  width: auto;
+  padding-bottom: 20px;
+  margin-top: 30px;
+}
+
+/*** STYLES ***/
+.nav-history {
+  border-top: 1px solid #333645;
+}
+
+.nav-path {
+  font-size: 0.8em;
+  padding: 11px 15px;
+}
+.nav-path li:first-of-type::after {
+  content: "/";
+  margin: auto 5px;
+}
+
+.contact-message {
+  background-color: #333645;
+  color: white;
+}
+.contact-message h2 {
+  font-size: 2.2em;
+  text-transform: none;
+}
+
+.contact-dtls-section {
+  padding: 15px;
+}
+.contact-dtls-section strong:first-of-type {
+  margin-bottom: 10px;
+}
+.contact-dtls-section a {
+  font-size: 2em;
+  color: #926fb1;
+  font-weight: 600;
+}
+.contact-dtls-section a:hover {
+  text-decoration: underline;
+}
+
+.contact-bottom textarea {
+  border: 1px #c0c0c0 solid;
+}
+.contact-bottom button {
+  background-color: #333645;
+}
+.contact-bottom button:hover {
+  background-color: #282b36;
+}
+
+.required::after {
+  content: "*";
+  color: #d24d57;
+  margin-left: 5px;
+}
+
+.map-cards .card:hover {
+  background-color: #926fb1;
+}
+.map-cards .card:hover .circle {
+  background-color: #333645;
+}
+
+/*** Media Queries ***/
+@media (min-width: 768px) {
+  .nav-path, .contact-message h2, .contact-top, .contact-bottom {
+    width: 750px;
+  }
+
+  .nav-history, .contact-message {
+    display: flex;
+  }
+
+  .contact-top, .contact-bottom, .contact-message h2, .nav-path {
+    margin: auto;
+  }
+
+  .map-cards {
+    display: flex;
+    width: 750px;
+    flex-direction: row;
+    margin: auto;
+  }
+  .map-cards .card {
+    width: 345px;
+  }
+}
+@media (min-width: 992px) {
+  .nav-path, .contact-message h2, .contact-top, .contact-bottom {
+    width: 970px;
+  }
+
+  .contact-message {
+    background-color: white;
+  }
+  .contact-message h2 {
+    color: #333645;
+  }
+
+  .map-cards {
+    width: 970px;
+  }
+  .map-cards .card {
+    width: 455px;
+  }
+
+  .contact-bottom form {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .form-group {
+    width: 485px;
+  }
+}
+@media (min-width: 1260px) {
+  .nav-path, .contact-message h2 {
+    width: 1200px;
+  }
+
+  .map-cards {
+    width: 1200px;
+  }
+  .map-cards .card {
+    width: 600px;
+  }
+
+  .contact-top, .form-group {
+    width: 400px;
+  }
+
+  .contact-bottom {
+    width: 800px;
+  }
+
+  .contact-form-container {
+    margin: auto;
+    flex-direction: row-reverse;
+    width: 1200px;
+  }
+}
+
+/*# sourceMappingURL=contact-page-styles.css.map */
