@@ -132,10 +132,10 @@
     }
 }
 
-.news-btn-training {
-    background-color: $training;
+.news-btn-design {
+    background-color: $design;
     &:hover{
-        background-color: darken($training, 10%)
+        background-color: darken($design, 10%)
     }
 }
 

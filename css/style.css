@@ -1803,10 +1803,10 @@ input {
   background-color: #286abd;
 }
 
-.news-btn-training {
+.news-btn-design {
   background-color: #926fb1;
 }
-.news-btn-training:hover {
+.news-btn-design:hover {
   background-color: #79539a;
 }
 
@@ -2334,6 +2334,10 @@ input {
     margin: 0 15px;
   }
 
+  .card-3 {
+    display: none;
+  }
+
   .news-summary-1 {
     box-shadow: 20px 0px 15px 0px #f0f0f0;
   }
@@ -2609,6 +2613,10 @@ input {
   }
   .card-container .telecoms p, .card-container .design p, .card-container .security p, .card-container .training p {
     height: 106.8px;
+  }
+
+  .card-3 {
+    display: block;
   }
 
   .background-grid, .banner-text-wrapper {

@@ -57,33 +57,33 @@
                         </div>
                     </div>
                     <div class="contact-bottom">
-                        <form>
+                        <form action="inc/submit.php" method="POST">
                             <div class="form-group">
                                 <label for="name" class="required">Your Name</label>
-                                <input type="text" id="name">
+                                <input type="text" id="name" name="name">
 
                                 <label for="email" class="required">Your Email</label>
-                                <input type="email" id="email">
+                                <input type="email" id="email" name="email">
                             </div>
                             <div class="form-group">
                                 <label for="phone" class="required">Your Telephone Number</label>
-                                <input type="text" id="phone">
+                                <input type="text" id="phone" name="phone">
 
                                 <label for="subject" class="required">Subject</label>
-                                <input type="text" id="subject">
+                                <input type="text" id="subject" name="subject">
                             </div>
                             <div class="message-group">
                                 <label for="message" class="required">Message</label>
-                                <textarea id="message"></textarea>
+                                <textarea id="message" name="msg"></textarea>
                             </div>
                             <div class="privacy-dec">
-                                <input type="checkbox" id="marketing-confirm">
+                                <input type="checkbox" id="marketing-confirm" name="box">
                                 <div class="privacy-text">
                                     <p>Please tick this box if you wish to receive marketing information from us. 
                                         Please see our <a href="#">Privacy Policy</a> for more information on how we use your data</p>
                                 </div>
                             </div>
-                            <button class="btn" type="button">Send Enquiry</button>
+                            <button class="btn" type="submit" name="submit">Send Enquiry</button>
                         </form>
                     </div>
                 </div>
