@@ -5,7 +5,7 @@ $dbUsername = "root"; // This is root as we are using Xampp
 $dbPassword = ""; // Null is Xampp default.
 $dbName = "netmatters_website";
 
-// Attempted use of PDOs
+// Attempted use of php inbuilt PDO object
 // try {
 //     $db = new PDO('sqlite:host=$dbServername;dbname=$dbName', $dbUsername, $dbPassword);
 //     // Trying to run database from inside project folder

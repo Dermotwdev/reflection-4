@@ -96,6 +96,9 @@ main {
     }
 }
 .contact-bottom {
+    h2 {
+        color: $design;
+    }
     textarea {
         border: 1px #c0c0c0 solid;
     }

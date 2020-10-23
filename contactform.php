@@ -57,34 +57,42 @@
                         </div>
                     </div>
                     <div class="contact-bottom">
-                        <form action="inc/submit.php" method="POST">
-                            <div class="form-group">
-                                <label for="name" class="required">Your Name</label>
-                                <input type="text" id="name" name="name">
+                        <?php if(! isset($_GET['submit'])) {
+                            echo 
+                        "<form action=\"inc/submit.php\" method=\"POST\">
+                            <div class=\"form-group\">
+                                <label for=\"name\" class=\"required\">Your Name</label>
+                                <input type=\"text\" id=\"name\" name=\"name\">
 
-                                <label for="email" class="required">Your Email</label>
-                                <input type="email" id="email" name="email">
+                                <label for=\"email\" class=\"required\">Your Email</label>
+                                <input type=\"email\" id=\"email\" name=\"email\">
                             </div>
-                            <div class="form-group">
-                                <label for="phone" class="required">Your Telephone Number</label>
-                                <input type="text" id="phone" name="phone">
+                            <div class=\"form-group\">
+                                <label for=\"phone\" class=\"required\">Your Telephone Number</label>
+                                <input type=\"text\" id=\"phone\" name=\"phone\">
 
-                                <label for="subject" class="required">Subject</label>
-                                <input type="text" id="subject" name="subject">
+                                <label for=\"subject\" class=\"required\">Subject</label>
+                                <input type=\"text\" id=\"subject\" name=\"subject\">
                             </div>
-                            <div class="message-group">
-                                <label for="message" class="required">Message</label>
-                                <textarea id="message" name="msg"></textarea>
+                            <div class=\"message-group\">
+                                <label for=\"message\" class=\"required\">Message</label>
+                                <textarea id=\"message\" name=\"msg\"></textarea>
                             </div>
-                            <div class="privacy-dec">
-                                <input type="checkbox" id="marketing-confirm" name="box">
-                                <div class="privacy-text">
+                            <div class=\"privacy-dec\">
+                                <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\">
+                                <div class=\"privacy-text\">
                                     <p>Please tick this box if you wish to receive marketing information from us. 
-                                        Please see our <a href="#">Privacy Policy</a> for more information on how we use your data</p>
+                                        Please see our <a href=\"#\">Privacy Policy</a> for more information on how we use your data</p>
                                 </div>
                             </div>
-                            <button class="btn" type="submit" name="submit">Send Enquiry</button>
-                        </form>
+                            <button class=\"btn\" type=\"submit\" name=\"submit\">Send Enquiry</button>
+                        </form>";
+                        } else if ($_GET['submit'] == 'success') { 
+                            echo "<h2>Success</h2>
+                                <p>Your message has been submitted.<br>
+                                We aim to get back to you within 4 business hours.</p>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <div class="map-cards">

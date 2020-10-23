@@ -103,6 +103,9 @@ main {
   text-decoration: underline;
 }
 
+.contact-bottom h2 {
+  color: #926fb1;
+}
 .contact-bottom textarea {
   border: 1px #c0c0c0 solid;
 }
