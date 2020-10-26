@@ -370,7 +370,7 @@ textarea {
 ----------------------Mixins-----------------
 -------------------------------------------- */
 /* ------- Typography ------ */
-body, header {
+body, header, textarea {
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.4px;
 }

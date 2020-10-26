@@ -129,6 +129,12 @@ main {
   background-color: #333645;
 }
 
+.tooltip-error {
+  color: lightcoral;
+  display: inline-block;
+  padding: 0 0 15px 15px;
+}
+
 /*** Media Queries ***/
 @media (min-width: 768px) {
   .nav-path, .contact-message h2, .contact-top, .contact-bottom {

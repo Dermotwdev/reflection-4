@@ -57,29 +57,86 @@
                         </div>
                     </div>
                     <div class="contact-bottom">
-                        <?php if(! isset($_GET['submit'])) {
+                        <?php
+                        if (isset($_GET['name'])) {
+                            $name = $_GET['name'];
+                        } if (isset($_GET['email'])) {
+                            $email = $_GET['email'];
+                        } if (isset($_GET['phone'])) {
+                            $phone = $_GET['phone'];
+                        } if (isset($_GET['subject'])) {
+                            $subject = $_GET['subject'];
+                        } if (isset($_GET['message'])) {
+                            $message = $_GET['message'];
+                        }
+                        if (isset($_GET['box'])) {
+                            echo $_GET['box'];
+                            $optin = $_GET['box'];
+                        } else {
+                            $optin = false;
+                        }
+                        if(! isset($_GET['submit'])) {
                             echo 
                         "<form action=\"inc/submit.php\" method=\"POST\">
                             <div class=\"form-group\">
                                 <label for=\"name\" class=\"required\">Your Name</label>
-                                <input type=\"text\" id=\"name\" name=\"name\">
-
-                                <label for=\"email\" class=\"required\">Your Email</label>
-                                <input type=\"email\" id=\"email\" name=\"email\">
-                            </div>
+                                <input type=\"text\" id=\"name\" name=\"name\""; if(isset($name) && $name !== 'empty') echo "value=\"$name\""; echo ">";
+                            if (isset($_GET['name'])) {
+                                if ($_GET['name'] == 'empty') { 
+                                  echo "<div class=\"tooltip-error\">
+                                            Name field is empty
+                                        </div>"; 
+                                }
+                            }
+                              echo "<label for=\"email\" class=\"required\">Your Email</label>
+                                <input type=\"email\" id=\"email\" name=\"email\" "; if(isset($email) && $email !== 'empty' && $email !== 'invalid') echo "value=\"$email\""; echo ">";
+                            if (isset($_GET['email'])) {
+                                if ($_GET['email'] == 'empty') { 
+                                    echo "<div class=\"tooltip-error\">
+                                              Email field is empty
+                                          </div>"; 
+                                } elseif ($_GET['email'] == 'invalid') {
+                                    echo "<div class=\"tooltip-error\">
+                                              Email provided is not a valid format
+                                          </div>";
+                                }
+                            } 
+                            echo "</div>
                             <div class=\"form-group\">
                                 <label for=\"phone\" class=\"required\">Your Telephone Number</label>
-                                <input type=\"text\" id=\"phone\" name=\"phone\">
+                                <input type=\"text\" id=\"phone\" name=\"phone\""; if(isset($phone) && $phone !== 'empty') echo "value=\"$phone\""; echo ">";
+                            if (isset($_GET['phone'])) {
+                                if ($_GET['phone'] == 'empty') { 
+                                    echo "<div class=\"tooltip-error\">
+                                              Phone Number field is empty
+                                          </div>"; 
+                                }
+                            } 
 
-                                <label for=\"subject\" class=\"required\">Subject</label>
-                                <input type=\"text\" id=\"subject\" name=\"subject\">
-                            </div>
+                               echo "<label for=\"subject\" class=\"required\">Subject</label>
+                                <input type=\"text\" id=\"subject\" name=\"subject\""; if(isset($subject) && $phone !== 'empty') echo "value=\"$subject\""; echo ">";
+                            if (isset($_GET['subject'])) {
+                                if ($_GET['subject'] == 'empty') { 
+                                    echo "<div class=\"tooltip-error\">
+                                              Subject field is empty
+                                          </div>"; 
+                                }
+                            }
+                            echo "</div>
                             <div class=\"message-group\">
                                 <label for=\"message\" class=\"required\">Message</label>
-                                <textarea id=\"message\" name=\"msg\"></textarea>
-                            </div>
+                                <textarea id=\"message\" name=\"msg\""; if(isset($message) && $message !== 'empty') echo "value=\"$message\""; echo "></textarea>";
+                            if (isset($_GET['message'])) {
+                                if ($_GET['message'] == 'empty') { 
+                                    echo "<div class=\"tooltip-error\">
+                                              Message field is empty
+                                          </div>"; 
+                                } 
+                            }
+                            echo "</div>
                             <div class=\"privacy-dec\">
-                                <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\">
+                                <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\" value=\"checked\""; if($optin == true) echo"checked=\"true\"";
+                                 echo ">
                                 <div class=\"privacy-text\">
                                     <p>Please tick this box if you wish to receive marketing information from us. 
                                         Please see our <a href=\"#\">Privacy Policy</a> for more information on how we use your data</p>
