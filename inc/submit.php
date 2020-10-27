@@ -6,8 +6,9 @@ $email = $_POST['email'];
 $phone = $_POST['phone'];
 $subject = $_POST['subject'];
 $message = $_POST['msg'];
-if (isset($_POST['box'])) {
+if ($_POST['box'] == 'checked') {
     $optin = 'true';
+    $getvars = 'shatit=true';
 } else {
     $optin = 'false';
 }
@@ -17,28 +18,35 @@ $array = ["$name", "$email", "$phone", "$subject", "$message" ];
 $sql = "INSERT INTO contact_form (name, email, phone, subject, message, optin, date) VALUES (?, ?, ?, ?, ?, ?, ?);"; 
 $getvars = '';
 
-// function validate_empty($var) {
-//     if (empty($var)) {
-//         if ($getvars == '') {
-//         $getvars = "$var" . "=empty";
-//         } else {
-//             $getvars .= "&" . "$var" . "=empty";
-//         }
-//     }
-// } 
+// Helps set URL to create GET global variables to tell site the field is empty
+function var_empty($var) {
+    global $getvars;
+    //$varstr = substr("$var", 1);
+    if ($getvars == '') {
+    $getvars = "$var" . "=empty";
+    } else {
+        $getvars .= "&" . "$var" . "=empty";
+    }
+}
+//  Helps set URL to create GET global variables to keep previous field entries
+function var_exists($var) {
+    global $getvars;
+    // $varstr = substr("$var", 1);
+    if ($getvars == '') {
+    $getvars = '$var' . "=$var";
+    } else {
+        $getvars .= "&" . '$var' . "=$var";
+    }
+}
 
 if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($message) ) {
-    // Attempt to refactor below code using function above
+    // Attempt to use array refactor a lot of below code using functions above (I tried)
     // for ($i = 0; $i <5; $i++) {
     //     validate_empty($array[$i]);
     // }
     if (empty($name)) {
-        if ($getvars == '') {
-            $getvars = "name" . "=empty";
+        var_empty('name');
         } else {
-            $getvars .= "&" . "name" . "=empty";
-        }
-    } else {
         if ($getvars == '') {
             $getvars = "name" . "=$name";
         } else {
@@ -46,11 +54,7 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
         }
     }
     if (empty($email)) {
-        if ($getvars == '') {
-            $getvars = "email" . "=empty";
-        } else {
-            $getvars .= "&" . "email" . "=empty";
-        }
+        var_empty('email');
     } elseif (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
         if ($getvars == '') {
             $getvars = "email" . "=invalid";
@@ -65,11 +69,7 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
         }
     }
     if (empty($phone)) {
-        if ($getvars == '') {
-            $getvars = "phone" . "=empty";
-        } else {
-            $getvars .= "&" . "phone" . "=empty";
-        }
+        var_empty('phone');
     } else {
         if ($getvars == '') {
             $getvars = "phone" . "=$phone";
@@ -78,11 +78,7 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
         }
     }
     if (empty($subject)) {
-        if ($getvars == '') {
-            $getvars = "subject" . "=empty";
-        } else {
-            $getvars .= "&" . "subject" . "=empty";
-        }
+        var_empty('subject');
     } else {
         if ($getvars == '') {
             $getvars = "subject" . "=$subject";
@@ -91,11 +87,7 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
         }
     }
     if (empty($message)) {
-        if ($getvars == '') {
-            $getvars = "message" . "=empty";
-        } else {
-            $getvars .= "&" . "message" . "=empty";
-        }
+        var_empty('message');
     } else {
         if ($getvars == '') {
             $getvars = "message" . "=$message";
@@ -103,12 +95,8 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
             $getvars .= "&" . "message" . "=$message";
         }
     }
-    if ($optin == false) {
-        if ($getvars == '') {
-        $getvars = "box" . "=empty";
-    } else {
-        $getvars .= "&" . "box" . "=empty";
-    }
+    if ($optin == 'false') {
+        var_empty('box');
     } else {
         if ($getvars == '') {
             $getvars = "box" . "=true";
@@ -116,6 +104,7 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
             $getvars .= "&" . "box" . "=true";
         }
     }
+    // Redirect user to contact form but with new information
     header("Location: ../contactform.php?$getvars");
     exit();
 } elseif (! filter_var($email, FILTER_VALIDATE_EMAIL)) {
@@ -124,6 +113,7 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
         } else {
             $getvars .= "&" . "email" . "=invalid";
         }
+    // Redirect user to contact form but with new information
     header("Location: ../contactform.php?$getvars");
     exit();
 } else {
@@ -138,7 +128,6 @@ if (empty($name) || empty($email) || empty($phone) || empty($subject) || empty($
         }
         mysqli_stmt_bind_param($stmt, "ssissss", $name, $email, $phone, $subject, $message, $optin, $date);
         mysqli_stmt_execute($stmt);
-        //mysqli_query($db, $sql);
         header("Location: ../contactform.php?submit=success");
     } catch (Exception $e) {
         echo "Unable to send form data" . $e->getMessage();

@@ -13,22 +13,32 @@ main {
 .contact-message h2 {
     padding: 25px 15px;
 }
-.contact-form-container, .contact-bottom, .contact-dtls-section, .contact-bottom form, .form-group {
+.contact-form-container, .contact-bottom, .contact-dtls-section, .contact-bottom form, .form-group, .input-group {
     display: flex;
     flex-direction: column;
 }
 .contact-top {
-    padding-top:30px;
+    padding-top: 40px;
     .hours strong {
         padding: 10px 0;
+    }
+    #question {
+        margin-bottom: 15px;
     }
 }
 .contact-bottom {
     input, label, textarea {
-        margin: 10px 15px;
+        margin: 5px 15px;
+    }
+    label {
+        font-weight: 600;    
     }
     textarea, input {
         border-radius: 2px;
+        box-shadow: inset 0px 2px 6px -5px darkgrey;
+    }
+    input {
+        height: 47px;
     }
     textarea {
         height: 100px;
@@ -44,6 +54,7 @@ main {
     #marketing-confirm {
         height: 50px;
         width: 50px;
+        box-shadow: none;
     }
     .btn {
         margin: auto auto auto 15px;
@@ -63,6 +74,7 @@ main {
 /*** STYLES ***/
 .nav-history {
     border-top: 1px solid $dark-bg;
+    box-shadow: 0 30px 30px 10px $shadow;
 }
 .nav-path {
     font-size: 0.8em;
@@ -86,6 +98,9 @@ main {
     strong:first-of-type {
         margin-bottom: 10px;
     }
+    &:nth-of-type(2) a {
+        font-size: 1.6em;
+    }
     a {
         font-size: 2.0em;
         color: $design;
@@ -101,6 +116,7 @@ main {
     }
     textarea {
         border: 1px #c0c0c0 solid;
+        padding: 5px 15px;
     }
     button {
         background-color: $dark-bg;
@@ -108,11 +124,31 @@ main {
             background-color: darken($dark-bg, 5%);
         }
     }
+    input, textarea {
+        font-family: Poppins; 
+        font-size: 0.875em;
+    }
+    textarea:focus, input:focus {
+        box-shadow: 0px 0px 6px 0px $search-outer-shadow;
+    } 
+    input {
+        padding: 5px 15px;
+    }
+    .privacy-text a {
+        text-decoration: underline;
+    }
+    // Tried to change checkbox colour but couldn't.
+    // .privacy-dec input:checked ~ .privacy-text {
+    //     background-color: $dark-bg;
+    // }
 }
 .required::after {
     content: "*";
     color: $required;
     margin-left: 5px;
+}
+.question {
+    font-size: 1em;
 }
 .map-cards { 
     .card {
@@ -129,7 +165,44 @@ main {
     display: inline-block;
     padding: 0 0 15px 15px;
 }
-
+/*** Fix accordion dropdown styles ***/
+// .ex_det_con {
+//     font-size: 
+// }
+.ex_row_frame {
+    box-shadow: none;
+}
+.ex_container {
+    background-color: transparent;
+}
+.det_pad {
+    padding: 0;
+}
+.ex_svg_cont {
+    left: 210px;
+    right: auto;
+    padding: 0;
+    color: black;
+}
+.ex_row_frame::before {
+    content: none;
+}
+.ex_row_frame[aria-expanded=true] {
+    margin: 0;
+}
+.ex_hdr_cont {
+    padding: 0 15px;
+}
+.ex_head {
+    flex-basis: 100%;
+    font-weight: 600;
+    &:hover {
+        text-decoration: underline;
+    }
+}
+.svg_style {
+    font-size: 28px;
+}
 /*** Media Queries ***/
 
 @media (min-width: $med) {
@@ -157,16 +230,15 @@ main {
     .nav-path, .contact-message h2, .contact-top, .contact-bottom {
         width: 970px;
     }
+    .contact-top {
+        padding-top: 0;
+    }
     .contact-message {
-        background-color: $header-bg; 
+        padding-top: 35px;
+        background-color: $header-bg;
+        box-shadow: inset 0px 18px 18px 0px $shadow;
         h2 {
         color: $dark-bg;
-        }
-    }
-    .map-cards {
-        width: 970px;
-        .card {
-            width: 455px;
         }
     }
     .contact-bottom form {
@@ -176,11 +248,46 @@ main {
     .form-group {
         width: 485px;
     }
+    .map-cards {
+        width: 970px;
+        .card {
+            width: 455px;
+        }
+    }
 } 
 
 @media (min-width: $xl) {
     .nav-path, .contact-message h2{
         width: 1200px;
+    }
+    .contact-message {
+        padding-top: auto;
+    } 
+    .contact-top {
+        width: 400px;
+    }
+    .form-group {
+        width: 800px;
+        flex-direction: row;
+    }
+    .contact-bottom {
+        width: 800px;
+        margin: 0 auto;
+        form {
+            flex-direction: column;
+        }
+    }
+    .contact-top {
+        margin: 0 auto; 
+        padding-top: 0;
+    }
+    .typograph p {
+        font-size: 16px;
+    }
+    .contact-form-container {
+        margin: auto;
+        flex-direction: row-reverse;
+        width: 1200px; 
     }
     .map-cards {
         width: 1200px;
@@ -188,15 +295,7 @@ main {
             width: 600px;
         }
     }
-    .contact-top, .form-group {
-        width: 400px;
-    }
-    .contact-bottom {
-        width: 800px;
-    }
-    .contact-form-container {
-        margin: auto;
-        flex-direction: row-reverse;
-        width: 1200px;
+    .input-group {
+        width: 50%;
     }
 }

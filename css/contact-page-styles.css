@@ -16,23 +16,33 @@ main {
   padding: 25px 15px;
 }
 
-.contact-form-container, .contact-bottom, .contact-dtls-section, .contact-bottom form, .form-group {
+.contact-form-container, .contact-bottom, .contact-dtls-section, .contact-bottom form, .form-group, .input-group {
   display: flex;
   flex-direction: column;
 }
 
 .contact-top {
-  padding-top: 30px;
+  padding-top: 40px;
 }
 .contact-top .hours strong {
   padding: 10px 0;
 }
+.contact-top #question {
+  margin-bottom: 15px;
+}
 
 .contact-bottom input, .contact-bottom label, .contact-bottom textarea {
-  margin: 10px 15px;
+  margin: 5px 15px;
+}
+.contact-bottom label {
+  font-weight: 600;
 }
 .contact-bottom textarea, .contact-bottom input {
   border-radius: 2px;
+  box-shadow: inset 0px 2px 6px -5px darkgrey;
+}
+.contact-bottom input {
+  height: 47px;
 }
 .contact-bottom textarea {
   height: 100px;
@@ -48,6 +58,7 @@ main {
 .contact-bottom #marketing-confirm {
   height: 50px;
   width: 50px;
+  box-shadow: none;
 }
 .contact-bottom .btn {
   margin: auto auto auto 15px;
@@ -68,6 +79,7 @@ main {
 /*** STYLES ***/
 .nav-history {
   border-top: 1px solid #333645;
+  box-shadow: 0 30px 30px 10px #f0f0f0;
 }
 
 .nav-path {
@@ -94,6 +106,9 @@ main {
 .contact-dtls-section strong:first-of-type {
   margin-bottom: 10px;
 }
+.contact-dtls-section:nth-of-type(2) a {
+  font-size: 1.6em;
+}
 .contact-dtls-section a {
   font-size: 2em;
   color: #926fb1;
@@ -108,6 +123,7 @@ main {
 }
 .contact-bottom textarea {
   border: 1px #c0c0c0 solid;
+  padding: 5px 15px;
 }
 .contact-bottom button {
   background-color: #333645;
@@ -115,11 +131,28 @@ main {
 .contact-bottom button:hover {
   background-color: #282b36;
 }
+.contact-bottom input, .contact-bottom textarea {
+  font-family: Poppins;
+  font-size: 0.875em;
+}
+.contact-bottom textarea:focus, .contact-bottom input:focus {
+  box-shadow: 0px 0px 6px 0px #14a2c4;
+}
+.contact-bottom input {
+  padding: 5px 15px;
+}
+.contact-bottom .privacy-text a {
+  text-decoration: underline;
+}
 
 .required::after {
   content: "*";
   color: #d24d57;
   margin-left: 5px;
+}
+
+.question {
+  font-size: 1em;
 }
 
 .map-cards .card:hover {
@@ -133,6 +166,50 @@ main {
   color: lightcoral;
   display: inline-block;
   padding: 0 0 15px 15px;
+}
+
+/*** Fix accordion dropdown styles ***/
+.ex_row_frame {
+  box-shadow: none;
+}
+
+.ex_container {
+  background-color: transparent;
+}
+
+.det_pad {
+  padding: 0;
+}
+
+.ex_svg_cont {
+  left: 210px;
+  right: auto;
+  padding: 0;
+  color: black;
+}
+
+.ex_row_frame::before {
+  content: none;
+}
+
+.ex_row_frame[aria-expanded=true] {
+  margin: 0;
+}
+
+.ex_hdr_cont {
+  padding: 0 15px;
+}
+
+.ex_head {
+  flex-basis: 100%;
+  font-weight: 600;
+}
+.ex_head:hover {
+  text-decoration: underline;
+}
+
+.svg_style {
+  font-size: 28px;
 }
 
 /*** Media Queries ***/
@@ -164,18 +241,17 @@ main {
     width: 970px;
   }
 
+  .contact-top {
+    padding-top: 0;
+  }
+
   .contact-message {
+    padding-top: 35px;
     background-color: white;
+    box-shadow: inset 0px 18px 18px 0px #f0f0f0;
   }
   .contact-message h2 {
     color: #333645;
-  }
-
-  .map-cards {
-    width: 970px;
-  }
-  .map-cards .card {
-    width: 455px;
   }
 
   .contact-bottom form {
@@ -186,9 +262,52 @@ main {
   .form-group {
     width: 485px;
   }
+
+  .map-cards {
+    width: 970px;
+  }
+  .map-cards .card {
+    width: 455px;
+  }
 }
 @media (min-width: 1260px) {
   .nav-path, .contact-message h2 {
+    width: 1200px;
+  }
+
+  .contact-message {
+    padding-top: auto;
+  }
+
+  .contact-top {
+    width: 400px;
+  }
+
+  .form-group {
+    width: 800px;
+    flex-direction: row;
+  }
+
+  .contact-bottom {
+    width: 800px;
+    margin: 0 auto;
+  }
+  .contact-bottom form {
+    flex-direction: column;
+  }
+
+  .contact-top {
+    margin: 0 auto;
+    padding-top: 0;
+  }
+
+  .typograph p {
+    font-size: 16px;
+  }
+
+  .contact-form-container {
+    margin: auto;
+    flex-direction: row-reverse;
     width: 1200px;
   }
 
@@ -199,18 +318,8 @@ main {
     width: 600px;
   }
 
-  .contact-top, .form-group {
-    width: 400px;
-  }
-
-  .contact-bottom {
-    width: 800px;
-  }
-
-  .contact-form-container {
-    margin: auto;
-    flex-direction: row-reverse;
-    width: 1200px;
+  .input-group {
+    width: 50%;
   }
 }
 

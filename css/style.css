@@ -370,7 +370,7 @@ textarea {
 ----------------------Mixins-----------------
 -------------------------------------------- */
 /* ------- Typography ------ */
-body, header, textarea {
+body, header, textarea, .typograph {
   font-family: "Poppins", sans-serif;
   letter-spacing: 0.4px;
 }
@@ -404,6 +404,10 @@ strong {
   font-weight: 600;
 }
 
+textarea {
+  font-size: 0.8em;
+}
+
 a, a:visited {
   text-decoration: none;
   color: currentcolor;
@@ -433,7 +437,7 @@ a, a:visited {
   color: white;
 }
 
-input {
+header input {
   color: #9c9c9c;
 }
 
@@ -753,7 +757,7 @@ a.main-nav h4 {
   z-index: 3;
   left: 0px;
   padding: 0 20px;
-  bottom: -43px;
+  bottom: -42px;
 }
 .hide-nav ul li {
   padding: 0 0 0 20px;

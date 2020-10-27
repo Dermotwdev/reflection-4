@@ -51,9 +51,6 @@
                             <div id="question">
                                 <!-- <p>Out Of Hours IT Support</p> -->
                             </div>
-                            <div class="answer">
-                                
-                            </div>
                         </div>
                     </div>
                     <div class="contact-bottom">
@@ -70,15 +67,13 @@
                             $message = $_GET['message'];
                         }
                         if (isset($_GET['box'])) {
-                            echo $_GET['box'];
                             $optin = $_GET['box'];
-                        } else {
-                            $optin = false;
                         }
                         if(! isset($_GET['submit'])) {
                             echo 
                         "<form action=\"inc/submit.php\" method=\"POST\">
                             <div class=\"form-group\">
+                                <div class=\"input-group\">
                                 <label for=\"name\" class=\"required\">Your Name</label>
                                 <input type=\"text\" id=\"name\" name=\"name\""; if(isset($name) && $name !== 'empty') echo "value=\"$name\""; echo ">";
                             if (isset($_GET['name'])) {
@@ -88,7 +83,10 @@
                                         </div>"; 
                                 }
                             }
-                              echo "<label for=\"email\" class=\"required\">Your Email</label>
+
+                              echo "</div>
+                              <div class=\"input-group\">
+                              <label for=\"email\" class=\"required\">Your Email</label>
                                 <input type=\"email\" id=\"email\" name=\"email\" "; if(isset($email) && $email !== 'empty' && $email !== 'invalid') echo "value=\"$email\""; echo ">";
                             if (isset($_GET['email'])) {
                                 if ($_GET['email'] == 'empty') { 
@@ -102,7 +100,9 @@
                                 }
                             } 
                             echo "</div>
+                            </div>
                             <div class=\"form-group\">
+                                <div class=\"input-group\">
                                 <label for=\"phone\" class=\"required\">Your Telephone Number</label>
                                 <input type=\"text\" id=\"phone\" name=\"phone\""; if(isset($phone) && $phone !== 'empty') echo "value=\"$phone\""; echo ">";
                             if (isset($_GET['phone'])) {
@@ -113,7 +113,9 @@
                                 }
                             } 
 
-                               echo "<label for=\"subject\" class=\"required\">Subject</label>
+                               echo "</div>
+                               <div class=\"input-group\">
+                               <label for=\"subject\" class=\"required\">Subject</label>
                                 <input type=\"text\" id=\"subject\" name=\"subject\""; if(isset($subject) && $phone !== 'empty') echo "value=\"$subject\""; echo ">";
                             if (isset($_GET['subject'])) {
                                 if ($_GET['subject'] == 'empty') { 
@@ -123,9 +125,10 @@
                                 }
                             }
                             echo "</div>
+                            </div>
                             <div class=\"message-group\">
                                 <label for=\"message\" class=\"required\">Message</label>
-                                <textarea id=\"message\" name=\"msg\""; if(isset($message) && $message !== 'empty') echo "value=\"$message\""; echo "></textarea>";
+                                <textarea id=\"message\" name=\"msg\">"; if(isset($message) && $message !== 'empty') echo $message; echo "</textarea>";
                             if (isset($_GET['message'])) {
                                 if ($_GET['message'] == 'empty') { 
                                     echo "<div class=\"tooltip-error\">
@@ -135,7 +138,7 @@
                             }
                             echo "</div>
                             <div class=\"privacy-dec\">
-                                <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\" value=\"checked\""; if($optin == true) echo"checked=\"true\"";
+                                <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\" value=\"checked\""; if(isset ($optin) && $optin !== 'empty') echo"checked=\"yes\"";
                                  echo ">
                                 <div class=\"privacy-text\">
                                     <p>Please tick this box if you wish to receive marketing information from us. 

@@ -1,6 +1,6 @@
 /* ------- Typography ------ */
 
-body, header, textarea {
+body, header, textarea, .typograph {
     font-family: 'Poppins', sans-serif;
     letter-spacing: 0.4px;
 }
@@ -25,6 +25,9 @@ p {
 }
 strong {
     font-weight: 600;
+}
+textarea {
+    font-size: 0.8em;
 }
 a, a:visited {
     text-decoration: none;
@@ -56,7 +59,7 @@ a, a:visited {
 .ham {
     color: $light-text;
 }
-input {
+header input {
     color: $srch-txt;
 }
 .search {

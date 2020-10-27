@@ -39,8 +39,9 @@ echo "<div class=\"news\">
                         <div class=\"news-footer\">
                             <img src=\"" . $news['authorimg'][$j] . "\" class=\"author nm\" alt=\"small netmatters logo\">
                             <div class=\"news-details\">
-                                <strong>Posted by" . $news['author'][$j] . "</strong>
-                                <p>" . $news['date'][$j] . "</p>
+                                <strong>Posted by " . $news['author'][$j] . "</strong>
+                                <p>" .
+                                date("jS F Y", strtotime( $news['date'][$j] )) . "</p>
                             </div>
                         </div>
                     </div>
