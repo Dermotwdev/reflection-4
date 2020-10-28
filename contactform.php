@@ -12,6 +12,7 @@
         <!-- Contact page styles -->
         <link rel="stylesheet" href="css/contact-page-styles.css?<?php echo time(); ?>">
         <title> Contact Us | Netmatters | Full Service Digital Agency | Norwich, Norfolk | ... </title>
+        <link rel="shortcut icon" href="img/icon/favicon.ico" />
     </head>
     <body>
     <?php require_once __DIR__ . '/inc/cookies.php' ?> 
@@ -138,8 +139,11 @@
                             }
                             echo "</div>
                             <div class=\"privacy-dec\">
-                                <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\" value=\"checked\""; if(isset ($optin) && $optin !== 'empty') echo"checked=\"yes\"";
-                                 echo ">
+                                <div class=\"checkbox-wrapper\">    
+                                    <input type=\"checkbox\" id=\"marketing-confirm\" name=\"box\" value=\"checked\""; if(isset ($optin) && $optin !== 'empty') echo"checked=\"yes\"";
+                                    echo ">
+                                    <label for=\"marketing-confirm\" class=\"checkmark\">
+                                </div>
                                 <div class=\"privacy-text\">
                                     <p>Please tick this box if you wish to receive marketing information from us. 
                                         Please see our <a href=\"#\">Privacy Policy</a> for more information on how we use your data</p>

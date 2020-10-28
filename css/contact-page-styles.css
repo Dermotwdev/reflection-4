@@ -59,16 +59,54 @@ main {
   height: 50px;
   width: 50px;
   box-shadow: none;
+  display: none;
 }
 .contact-bottom .btn {
-  margin: auto auto auto 15px;
+  margin: 15px auto auto 15px;
 }
 .contact-bottom .privacy-text p {
-  padding-left: 0;
+  padding-left: 5px;
+  font-weight: 600;
+  line-height: 2;
+}
+
+.checkbox-wrapper {
+  padding-top: 6px;
+}
+
+.checkmark {
+  display: block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  border: 3px solid #333645;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+}
+
+#marketing-confirm:checked ~ .checkmark {
+  background-color: #333645;
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  width: 5px;
+  height: 12px;
+  border-right: 3px solid #fff;
+  border-bottom: 3px solid #fff;
+  border-radius: 1px;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotateZ(40deg);
 }
 
 .map-cards {
   padding-top: 20px;
+}
+.map-cards h3 {
+  align-self: stretch;
 }
 .map-cards .card {
   width: auto;

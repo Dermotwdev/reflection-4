@@ -12,6 +12,7 @@
         <!-- Website styles -->
         <link rel="stylesheet" href="css/style.css?<?php echo time(); ?>">
         <title> Netmatters | Full Service Digital Agency | Norwich, Norfolk | ... </title>
+        <link rel="shortcut icon" href="img/icon/favicon.ico" />
     </head>
 
     <body>
