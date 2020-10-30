@@ -8,7 +8,6 @@ $subject = $_POST['subject'];
 $message = $_POST['msg'];
 if ($_POST['box'] == 'checked') {
     $optin = 'true';
-    $getvars = 'shatit=true';
 } else {
     $optin = 'false';
 }
